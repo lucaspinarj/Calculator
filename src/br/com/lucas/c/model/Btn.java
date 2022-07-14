@@ -9,9 +9,9 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 public class Btn extends JButton {
 
-	Btn(String txt, Color color) {
-		setText(txt);
-		setFont(new Font("San Francisco", Font.PLAIN, 15));
+	Btn(String text, Color color) {
+		setText(text);
+		setFont(new Font("San Francisco", Font.PLAIN, 20));
 		setOpaque(true);
 		setBackground(color);
 		setForeground(new Color(232, 231, 231));
