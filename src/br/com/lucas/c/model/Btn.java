@@ -11,13 +11,10 @@ public class Btn extends JButton {
 
 	Btn(String txt, Color color) {
 		setText(txt);
-		setBackground(color);
-
-		setForeground(Dsplay.TXT);
+		setFont(new Font("San Francisco", Font.PLAIN, 15));
 		setOpaque(true);
-		setFont(new Font("San Francisco", Font.PLAIN, 20));
-		
-		setBorder(BorderFactory.createLineBorder(Dsplay.BG));
-
+		setBackground(color);
+		setForeground(new Color(232, 231, 231));
+		setBorder(BorderFactory.createLineBorder(new Color(51, 46, 48)));
 	}
 }
