@@ -63,7 +63,6 @@ public class Memory {
 
 	public void processCommand(String text) {
 		Command command = detectCommand(text);
-		System.out.println(command);
 
 		if (command == null) {
 			return;
