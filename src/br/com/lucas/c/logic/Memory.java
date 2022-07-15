@@ -72,7 +72,18 @@ public class Memory {
 			txtBuffer = "";
 			substitute = false;
 			lastOperation = null;
-		} else if (command == Command.NUMBER) {
+		} else if (command == Command.SIGN && txt.contains("-")) {
+			txt = txt.substring(1);
+		} else if (command == Command.SIGN && !txt.contains("-")) {
+			if (txt == null || txt == "") {
+				return;
+			} else {
+				txt = "-" + txt;
+			}
+		} else if (command == Command.NUMBER || command == Command.COMMA) {
+			if (command == Command.COMMA && (txt == null || txt == "")) {
+				return;
+			}
 			txt = substitute ? text : txt + text;
 			substitute = false;
 		} else {
@@ -88,12 +99,12 @@ public class Memory {
 		if (lastOperation == null || lastOperation == Command.EQUAL) {
 			return txt;
 		}
-		
+
 		double numBuffer = Double.parseDouble(txtBuffer.replace(",", "."));
 		double num = Double.parseDouble(txt.replace(",", "."));
-		
+
 		double result = 0;
-		
+
 		if (lastOperation == Command.PLUS) {
 			result = numBuffer + num;
 		} else if (lastOperation == Command.MINUS) {
@@ -103,10 +114,10 @@ public class Memory {
 		} else if (lastOperation == Command.DIVIDE) {
 			result = numBuffer / num;
 		}
-		
+
 		String stringResult = Double.toString(result).replace(".", ",");
-		boolean integer = stringResult.endsWith(",0");
-		return integer ? stringResult.replace(",0", "") : stringResult;
+		boolean number = stringResult.endsWith(",0");
+		return number ? stringResult.replace(",0", "") : stringResult;
 	}
 
 }
