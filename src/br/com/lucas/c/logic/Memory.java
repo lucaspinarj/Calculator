@@ -40,7 +40,7 @@ public class Memory {
 			return Command.NUMBER;
 		} catch (NumberFormatException e) {
 
-			if ("AC".equals(text)) {
+			if ("C".equals(text)) {
 				return Command.ERASE;
 			} else if ("÷".equals(text)) {
 				return Command.DIVIDE;
@@ -56,6 +56,8 @@ public class Memory {
 				return Command.EQUAL;
 			} else if ("±".equals(text)) {
 				return Command.SIGN;
+			} else if ("%".equals(text)) {
+				return Command.MODULE;
 			}
 		}
 		return null;
@@ -63,6 +65,8 @@ public class Memory {
 
 	public void processCommand(String text) {
 		Command command = detectCommand(text);
+		
+		//TODO implement % structure
 
 		if (command == null) {
 			return;
@@ -80,7 +84,7 @@ public class Memory {
 				txt = "-" + txt;
 			}
 		} else if (command == Command.NUMBER || command == Command.COMMA) {
-			if (command == Command.COMMA && (txt == null || txt == "")) {
+			if (command == Command.COMMA && (txt == null || txt == "") && command == Command.MODULE) {
 				return;
 			}
 			txt = substitute ? text : txt + text;
@@ -112,6 +116,8 @@ public class Memory {
 			result = numBuffer * num;
 		} else if (lastOperation == Command.DIVIDE) {
 			result = numBuffer / num;
+		} else if (lastOperation == Command.MODULE) {
+				result = num/100 ;
 		}
 
 		String stringResult = Double.toString(result).replace(".", ",");

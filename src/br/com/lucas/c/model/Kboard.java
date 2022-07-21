@@ -26,7 +26,8 @@ public class Kboard extends JPanel implements ActionListener {
 		c.weighty = 1;
 		c.fill = GridBagConstraints.BOTH;
 
-		addBtn("AC", DGRAY, c, 0, 0, 2, 1);
+		addBtn("C", DGRAY, c, 0, 0, 1, 1);
+		addBtn("%", DGRAY, c, 1, 0, 1, 1);
 		addBtn("±", DGRAY, c, 2, 0, 1, 1);
 		addBtn("÷", ORANGE, c, 3, 0, 1, 1);
 

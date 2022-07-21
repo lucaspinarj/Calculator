@@ -14,7 +14,7 @@ public class App extends JFrame {
 	App() {
 		setLayout();
 
-		Dimension sz = new Dimension(230, 322);
+		Dimension sz = new Dimension(231, 318);
 		setMaximumSize(sz);
 		setMinimumSize(sz);
 

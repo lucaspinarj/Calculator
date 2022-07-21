@@ -1,7 +1,6 @@
 package br.com.lucas.c.model;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
@@ -17,7 +16,6 @@ public class Dsplay extends JPanel implements MemoryObserver {
 	private final JLabel label;
 
 	public Dsplay() {
-		setPreferredSize(new Dimension(230, 54));
 		setBackground(new Color(51, 46, 48));
 
 		Memory.getInstance().addObserver(this);
